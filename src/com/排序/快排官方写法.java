@@ -13,7 +13,8 @@ import java.util.Random;
 public class 快排官方写法 {
 
     public static void main(String[] args) {
-        int[] arr = new int[] {5, 2, 3, 1};
+//        int[] arr = new int[] {5, 2, 3, 1};
+        int[] arr = new int[] {1};
         int[] ans = sortArray(arr);
         for (int n : ans) System.out.print(n + ",");
     }
@@ -21,10 +22,11 @@ public class 快排官方写法 {
         quickSort(nums, 0, nums.length - 1);
         return nums;
     }
-    public static void quickSort(int[] nums, int l, int r) {
+
+    public static void quickSort(int[] nums, int l, int r) {   // 这里加if，不满足if的是单个元素正好不用排
         if (l < r) {   // 如果初始l=r，说明只有一个元素；如果递归过程l=r说明分到了1个元素的数组排序，不排序1个元素
             int pos = randomPartition(nums, l, r);
-            quickSort(nums, l, pos - 1);
+            quickSort(nums, l, pos - 1);   // 没有if判断的话，单个元素l, pos-1这儿就是0，-1会有越界报错
             quickSort(nums, pos + 1, r);
         }
     }
