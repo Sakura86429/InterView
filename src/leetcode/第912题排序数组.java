@@ -42,8 +42,8 @@ public class 第912题排序数组 {
                 swap(nums, i, j);   // 反正有小的逐渐往左放就行了，j会往右移动的
             }
         }
-        swap(nums, i + 1, r);   // 最后交换主元下标和i + 1下标。这是下标i+1左边全更小，右边全更大
-        return i + 1;   // 返回i+1位置
+        swap(nums, i + 1, r);   // 最后交换主元下标和i再 + 1后的下标。这是下标i+1左边全更小，右边全更大
+        return i + 1;   // 返回i再+1后的主元元素位置
     }
 
     private void swap(int[] nums, int r, int i) {
@@ -51,4 +51,6 @@ public class 第912题排序数组 {
         nums[r] = nums[i];
         nums[i] = temp;
     }
+
+
 }
