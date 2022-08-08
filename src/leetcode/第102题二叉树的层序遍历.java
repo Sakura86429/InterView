@@ -19,7 +19,7 @@ public class 第102题二叉树的层序遍历 {
     }
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
-        if (root == null) return ans;   // 不要忘了非空判断
+        if (root == null) return ans;   // 不要忘了非空判断   // if定义的不是局部变量，但是while和for循环里面定义的是局部变量
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {

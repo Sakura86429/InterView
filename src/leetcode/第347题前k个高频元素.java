@@ -78,7 +78,7 @@ public class 第347题前k个高频元素 {
 //        }
 //        return ret;
 //    }
-    public static int[] topKFrequent(int[] nums, int k) {
+    public static int[] topKFrequent(int[] nums, int k) {   // 说明了k的范围为1开始
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
@@ -93,7 +93,7 @@ public class 第347题前k个高频元素 {
             int num = entry.getKey(), val = entry.getValue();
             if (queue.size() < k) {
                 queue.offer(new int[] {num, val});
-            } else if (queue.size() == k && queue.peek()[1] < val) {
+            } else if (queue.size() == k && queue.peek()[1] < val) {   // 警告：这里有可能k=0执行queue.peek()[1]出错
                 queue.poll();
                 queue.offer(new int[] {num, val});
             }
