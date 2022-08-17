@@ -29,7 +29,7 @@ public class Main022 {
                 parents.get(i).add(Integer.parseInt(split[j]));
             }
         }
-        dependments = new TreeSet<>();   // TreeSet默认升序
+        dependments = new TreeSet<>();   // TreeSet默认自然排序，也即是升序
         dfs(parents, m, new boolean[n]);
         if (haveLoop) System.out.println(-1);
         else {
