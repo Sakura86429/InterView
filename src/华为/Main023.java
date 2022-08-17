@@ -35,6 +35,7 @@ public class Main023 {
         if (haveLoop) System.out.println(-1);
         else {
             Integer[] ans = res.toArray(new Integer[0]);
+            if (ans.length == 0) System.out.println("null");
             for (int i = 0; i < ans.length; i++) {
                 System.out.print(ans[i]);
                 if (i != ans.length - 1) System.out.print(",");
@@ -57,7 +58,5 @@ public class Main023 {
             }
             visited[i] = false;
         }
-
     }
-
 }
