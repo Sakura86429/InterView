@@ -12,7 +12,7 @@ public class 移除元素 {
     public static void main(String[] args) {
 
     }
-    // 两个单向2n遍历的双指针
+//    // 两个单向2n遍历的双指针
 //    public int removeElement(int[] nums, int val) {   // 如果元素的位置在1这里，就需要把每一个元素都左移一位
 //        int slow = 0;
 //        for (int fast = 0; fast < nums.length; fast++) {
