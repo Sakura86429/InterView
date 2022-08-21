@@ -18,8 +18,8 @@ public class 第59题螺旋矩阵2 {
         int l = 0, r = n - 1;
         int t = 0, b = n - 1;
         while (l <= r && t <= b) {
-            for (int i = l; i <= r; i++) matrix[t][l] = num++;
-            for (int i = t; i <= b; i++) matrix[t][r] = num++;
+            for (int i = l; i <= r; i++) matrix[t][i] = num++;
+            for (int i = t + 1; i <= b; i++) matrix[i][r] = num++;
             if (l < r && t < b) {   // 两者如果只有一条满足，就是行或列
                 for (int i = r - 1; i > l; i--) matrix[b][i] = num++;
                 for (int i = b; i > t; i--) matrix[i][l] = num++;
