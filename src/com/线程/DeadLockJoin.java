@@ -18,7 +18,7 @@ public class DeadLockJoin {
             Thread A = null;
             Thread B = null;
             public void doSome() {
-                A = new Thread(new Runnable() {
+                A = new Thread(new Runnable() {   // 正常的将一个实现了Runnable接口的对象放到new Thread中
                     @Override
                     public void run() {
                         System.out.println("A start");
