@@ -15,8 +15,15 @@ public class 饿汉式 {
 }
 class Singleton1 {
     private static Singleton1 instance = new Singleton1();
-    private Singleton1 () {}   // 可以为四种修饰符之一，但是private表示只能在当前类中访问它，不能被继承【只能本类中使用new构造】
+    private Singleton1() {}
     public static Singleton1 getInstance() {
         return instance;
     }
 }
+//class Singleton1 {
+//    private static Singleton1 instance = new Singleton1();
+//    private Singleton1 () {}   // 可以为四种修饰符之一，但是private表示只能在当前类中访问它，不能被继承【只能本类中使用new构造】
+//    public static Singleton1 getInstance() {
+//        return instance;
+//    }
+//}

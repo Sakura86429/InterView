@@ -14,12 +14,22 @@ public class 懒汉式 {
     }
 }
 class Singleton2 {
-    private static Singleton2 singleton;
+    private static Singleton2 instance;
     private Singleton2() {}
     public static Singleton2 getInstance() {
-        if (singleton == null) {
-            singleton = new Singleton2();
+        if (instance == null) {
+            instance = new Singleton2();
         }
-        return singleton;
+        return instance;
     }
 }
+//class Singleton2 {
+//    private static Singleton2 singleton;
+//    private Singleton2() {}
+//    public static Singleton2 getInstance() {
+//        if (singleton == null) {
+//            singleton = new Singleton2();
+//        }
+//        return singleton;
+//    }
+//}
