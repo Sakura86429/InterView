@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Topic
  * Description
- *
+ * 因为题目已经给的是有效括号字符串了，所以可以直接做
  * @author zhouh
  * @version 1.0
  * Create by 2022/8/24 13:36
