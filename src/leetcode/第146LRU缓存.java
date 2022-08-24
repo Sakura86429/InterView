@@ -31,7 +31,7 @@ public class 第146LRU缓存 {
         // 使用伪头部和伪头节点
         head = new DLinkedNode();
         tail = new DLinkedNode();
-        head.next = tail;
+        head.next = tail;   // 头尾相连的操作
         tail.prev = head;
     }
     public int get(int key) {
