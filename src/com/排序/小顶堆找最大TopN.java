@@ -45,7 +45,7 @@ public class 小顶堆找最大TopN {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 2, 6};
         int N = 3;
-        queue = new PriorityQueue<>(new Comparator<Integer>() {
+        queue = new PriorityQueue<>(new Comparator<Integer>() {   // 默认
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o1 - o2;
