@@ -17,6 +17,7 @@ public class 第46全排列 {
     public static void main(String[] args) {
 
         System.out.println(new 第46全排列().permute(new int[]{1,2,3}));
+        System.out.println(new 第46全排列().permute(new int[]{1,1,2}));
     }
 //    public static List<List<Integer>> permute(int[] nums) {
 //        List<List<Integer>> ans = new ArrayList<>();
@@ -78,23 +79,84 @@ public class 第46全排列 {
 //            Collections.swap(sub, index, i);   // 方便下一次for循环交换元素
 //        }
 //    }
+
+//    public List<List<Integer>> permute(int[] nums) {
+//            List<List<Integer>> res = new ArrayList<>();
+//            List<Integer> list = new ArrayList<>();
+//            for (int n : nums) list.add(n);
+//            dfs(res, list, nums.length, 0);
+//            return res;
+//    }
+//
+//    private void dfs(List<List<Integer>> res, List<Integer> sub, int length, int index) {
+//        if (index == length - 1) {
+//            res.add(new ArrayList<>(sub));
+//            return;
+//        }
+//        for (int i = index; i < length; i++) {
+//            Collections.swap(sub, index, i);
+//            dfs(res, sub, length, index + 1);
+//            Collections.swap(sub, index, i);
+//        }
+//    }
+
+//    public List<List<Integer>> permute(int[] nums) {
+//        List<List<Integer>> res = new ArrayList<>();
+//        List<Integer> sub = new ArrayList<>();
+//        for (int n : nums) sub.add(n);
+//        dfs(res, sub, 0);
+//        return res;
+//    }
+//
+//    private void dfs(List<List<Integer>> res, List<Integer> sub, int index) {
+//        if (index == sub.size() - 1) {
+//            res.add(new ArrayList<>(sub));   // 直到交换到+1=最后一个
+//            return;
+//        }
+//        for (int i = index; i < sub.size(); i++) {
+//            Collections.swap(sub, index, i);   // 顺次填入index、index+1
+//            dfs(res, sub, index + 1);
+//            Collections.swap(sub, index, i);   // 错写为1
+//        }
+//    }
+
+//    public List<List<Integer>> permute(int[] nums) {
+//        List<List<Integer>> res = new ArrayList<>();
+//        List<Integer> list = new ArrayList<>();
+//        for (int n : nums) list.add(n);
+//        dfs(res, list, 0);
+//        return res;
+//    }
+//
+//    private void dfs(List<List<Integer>> res, List<Integer> list, int index) {
+//        if (index == list.size() - 1) {
+//            res.add(new ArrayList<>(list));
+//            return;
+//        }
+//        for (int i = index; i < list.size(); i++) {
+//            Collections.swap(list, index, i);
+//            dfs(res, list, index + 1);
+//            Collections.swap(list, index, i);
+//        }
+//    }
+
     public List<List<Integer>> permute(int[] nums) {
-            List<List<Integer>> res = new ArrayList<>();
-            List<Integer> list = new ArrayList<>();
-            for (int n : nums) list.add(n);
-            dfs(res, list, nums.length, 0);
-            return res;
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        for (int n : nums) list.add(n);
+        dfs(res, list, 0);
+        return res;
     }
 
-    private void dfs(List<List<Integer>> res, List<Integer> sub, int length, int index) {
-        if (index == length - 1) {
-            res.add(new ArrayList<>(sub));
+    private void dfs(List<List<Integer>> res, List<Integer> list, int index) {
+        if (index == list.size() - 1) {
+            res.add(new ArrayList<>(list));
             return;
         }
-        for (int i = index; i < length; i++) {
-            Collections.swap(sub, index, i);
-            dfs(res, sub, length, index + 1);
-            Collections.swap(sub, index, i);
+        for (int i = index; i < list.size(); i++) {
+            Collections.swap(list, index, i);
+            dfs(res, list, index + 1);
+            Collections.swap(list, index, i);
         }
     }
 }
