@@ -21,17 +21,18 @@ public class 二分法 {
         System.out.println(search(arr2, 91));
     }
 
-    private static int search(int[] arr, int i) {
-        int l = 0;
-        int r = arr.length - 1;
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
-            if (arr[mid] > i) r = mid - 1;
-            else if (arr[mid] < i) l = l + 1;
-            else return arr[mid];
-        }
-        return -1;
-    }
+//    private static int search(int[] arr, int i) {
+//        int l = 0;
+//        int r = arr.length - 1;
+//        while (l <= r) {
+//            int mid = l + (r - l) / 2;
+//            if (arr[mid] > i) r = mid - 1;   // 固定target，填位置
+//            else if (arr[mid] < i) l = l + 1;
+//            else return arr[mid];
+//        }
+//        return -1;
+//    }
+
 //    private static int search(int[] arr, int i) {
 //        int start = 0;
 //        int end = arr.length - 1;
@@ -47,4 +48,15 @@ public class 二分法 {
 //        }
 //        return -1;
 //    }
+
+    private static int search(int[] arr, int i) {   // 左闭右开
+        int l = 0, r = arr.length;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] > i) r = mid;
+            else if (arr[mid] < i) l = mid + 1;
+            else return arr[mid];
+        }
+        return -1;
+    }
 }
