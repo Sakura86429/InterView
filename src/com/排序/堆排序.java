@@ -88,6 +88,84 @@ public class 堆排序 {
 //        arr[i] = tem;
 //    }
 
+//    public static void main(String[] args) {
+//        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+//        for (int i = arr.length / 2 - 1; i >= 0; i--) {
+//            adjust(arr, i, arr.length);
+//        }
+//        for (int i = arr.length - 1; i > 0; i--) {
+//            int tem = arr[i];
+//            arr[i] = arr[0];
+//            arr[0] = tem;
+//            adjust(arr, 0, i);
+//        }
+//        for (int n : arr) System.out.print(n + " ");
+//    }
+//
+//    private static void adjust(int[] arr, int i, int length) {
+//        int tem = arr[i];
+//        for (int k = 2 * i + 1; k < length; k = 2 * k + 1) {
+//            if (k + 1 < length && arr[k] < arr[k + 1]) k++;
+//            if (arr[k] > tem) {
+//                arr[i] = arr[k];
+//                i = k;
+//            } else break;
+//        }
+//        arr[i] = tem;
+//    }
+
+//    public static void main(String[] args) {
+//        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+//        for (int i = arr.length / 2 - 1; i >= 0; i--) {
+//            adjust(arr, i, arr.length);
+//        }
+//        for (int i = arr.length - 1; i > 0; i--) {
+//            int tem = arr[i];
+//            arr[i] = arr[0];
+//            arr[0] = tem;
+//            adjust(arr, 0, i);
+//        }
+//        for (int n : arr) System.out.print(n + " ");
+//    }
+//
+//    private static void adjust(int[] arr, int i, int length) {
+//        int tem = arr[i];   // tem保存arr[i]，下面可能会修改掉
+//        for (int k = 2 * i + 1; k < length; k = 2 * k + 1) {
+//            if (k + 1 < length && arr[k] < arr[k + 1]) k++;
+//            if (arr[k] > tem) {
+//                arr[i] = arr[k];
+//                i = k;   // i时刻变化
+//            }
+//        }
+//        arr[i] = tem;
+//    }
+
+//    public static void main(String[] args) {
+//        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+//        for (int i = arr.length / 2 - 1; i >= 0; i--) {
+//            adjust(arr, i, arr.length);
+//        }
+//        for (int i = arr.length - 1; i > 0; i--) {
+//            int tem = arr[i];
+//            arr[i] = arr[0];
+//            arr[0] = tem;
+//            adjust(arr, 0, i);
+//        }
+//        for (int n : arr) System.out.print(n + " ");
+//    }
+//
+//    private static void adjust(int[] arr, int i, int length) {
+//        int tem = arr[i];
+//        for (int k = 2 * i + 1; k < length; k = 2 * k + 1) {
+//            if (k + 1 < length && arr[k] < arr[k + 1]) k++;
+//            if (arr[k] > tem) {   // 因为是从后往前的，所以和tem比较，调整一次就好了。下坠的时候也是只和tem比较
+//                arr[i] = arr[k];
+//                i = k;
+//            }
+//        }
+//        arr[i] = tem;
+//    }
+
     public static void main(String[] args) {
         int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
@@ -103,13 +181,13 @@ public class 堆排序 {
     }
 
     private static void adjust(int[] arr, int i, int length) {
-        int tem = arr[i];
+        int tem = arr[i];   // 存起来后一直下沉arr[i] = arr[k]，i = k
         for (int k = 2 * i + 1; k < length; k = 2 * k + 1) {
             if (k + 1 < length && arr[k] < arr[k + 1]) k++;
             if (arr[k] > tem) {
                 arr[i] = arr[k];
                 i = k;
-            } else break;
+            }
         }
         arr[i] = tem;
     }

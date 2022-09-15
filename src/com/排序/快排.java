@@ -100,15 +100,53 @@ public class 快排 {
 //        arr[i] = tem;
 //    }
 
+//    public static int[] sortArray(int[] nums) {
+//        quickSort(nums, 0, nums.length - 1);
+//        return nums;
+//    }
+//
+//    private static void quickSort(int[] nums, int l, int r) {
+//        if (l < r) {   // 如果初始l=r，说明只有一个元素；如果递归过程l=r说明分到了1个元素的数组排序，不排序1个元素
+//            int pos = randomPartition(nums, l, r);
+//            quickSort(nums, l, pos - 1);   // 没有if判断的话，单个元素l, pos-1这儿就是0，-1会有越界报错
+//            quickSort(nums, pos + 1, r);
+//        }
+//    }
+//
+//    private static int randomPartition(int[] nums, int l, int r) {
+//        int i = new Random().nextInt(r - l + 1) + l;
+//        swap(nums, i, r);
+//        return partition(nums, l, r);
+//    }
+//
+//    private static int partition(int[] nums, int l, int r) {
+//        int pivot = nums[r];
+//        int i = l - 1;
+//        for (int j = l; j <= r - 1; j++) {
+//            if (nums[j] < pivot) {
+//                i = i + 1;
+//                swap(nums, i, j);
+//            }
+//        }
+//        swap(nums, i + 1, r);
+//        return i + 1;
+//    }
+//
+//    private static void swap(int[] nums, int i, int r) {
+//        int tem = nums[i];
+//        nums[i] = nums[r];
+//        nums[r] = tem;
+//    }
+
     public static int[] sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
         return nums;
     }
 
     private static void quickSort(int[] nums, int l, int r) {
-        if (l < r) {   // 如果初始l=r，说明只有一个元素；如果递归过程l=r说明分到了1个元素的数组排序，不排序1个元素
+        if (l < r) {
             int pos = randomPartition(nums, l, r);
-            quickSort(nums, l, pos - 1);   // 没有if判断的话，单个元素l, pos-1这儿就是0，-1会有越界报错
+            quickSort(nums, l, pos - 1);
             quickSort(nums, pos + 1, r);
         }
     }
@@ -124,7 +162,7 @@ public class 快排 {
         int i = l - 1;
         for (int j = l; j <= r - 1; j++) {
             if (nums[j] < pivot) {
-                i = i + 1;
+                i = i + 1;   // i+1存最后一个<pivot的数
                 swap(nums, i, j);
             }
         }
